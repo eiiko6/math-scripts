@@ -1,2 +1,3 @@
-# math-scripts
-Random scripts I make out of some courses
+# Math scripts
+Random scripts I make out of some courses.
+They're usable, but sometimes really specific...
