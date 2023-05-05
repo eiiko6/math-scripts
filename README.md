@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Random scripts I make out of some courses.
+I like to put in python what I learn in math lessons.
 They're usable, but sometimes really specific...
 
 ## Scripts
