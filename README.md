@@ -3,7 +3,7 @@
 ## Introduction
 
 I like to put in python what I learn in math lessons.
-They're usable, but sometimes really specific...
+So here are some small scripts i made. They're usable, but sometimes really specific...
 
 ## Scripts
 
