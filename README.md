@@ -1,9 +1,9 @@
-# Math Scripts
+# Python stuff
 
 ## Introduction
 
-I like to put into python what I learn in math lessons.
-So here are some small scripts i made. They're usable, but sometimes really specific...
+I like writing random scripts that do random things.
+So here are some small ones I made. They're usable, but sometimes really specific...
 
 ## Scripts
 
