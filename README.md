@@ -20,3 +20,7 @@ So here are some small ones I made. They're usable, but sometimes really specifi
     This script asks for user input and calculates the area of concentric circles.
     The radiuses can either have the same distance between them, or be specified individually.
     The user is warned if the values provided aren't sorted correctly.
+
+- ### [mastermind.py](./Scripts/mastermind.py)
+    This is a simple mastermind game. Some parameters can be changed, like the amount of different pegs available, the sequence length or the amount of allowed tries. A score is added to a counter depending on the amount of turns used. Some common input errors like wrong characters or wrong length are handeled.
+    For now duplicates in input aren't handeled at all and result in incoherent results during checking.

@@ -1,4 +1,7 @@
 # Mastermind
+
+# There are still things to be done, like implementing support for duplicates
+
 import random, os
 
 TURNS = 5
@@ -47,7 +50,7 @@ def checkInput(attempt, solution): # Check if the input is legal and correct and
 def game(): # Game here
     round_score = 10
     turns = TURNS
-    solution = roll(False)
+    solution = roll(False) # Kinda broken if True
 
     print(f"Debug: {solution}") # Just for simplifying debug
 
@@ -55,7 +58,7 @@ def game(): # Game here
     print("The valid pegs are", ", ".join(PEGS))
     
     while True: # Ask for the input until it's correct or the turns are used up
-        attempt = input("> ")
+        attempt = input("> ") # Broken if you input duplicates
         print(checkInput(attempt, solution)[1])
 
         if checkInput(attempt, solution)[0] == False:
@@ -80,7 +83,6 @@ def game(): # Game here
     os.system('cls')
 
     return [round_score, again]
-
 
 
 if __name__ == "__main__":
