@@ -12,6 +12,17 @@ rounds = 0
 score = 0
 
 
+# Tool functions
+def duplicates(s):
+    seen = set()
+    for char in s:
+        if char in seen:
+            return True
+        seen.add(char)
+    return False
+
+
+# Game functions
 def roll(allowDupes): # Define a random solution
     if allowDupes:
         output = random.choices(PEGS, k=CHAIN_LENGTH) # With duplicates
@@ -28,11 +39,13 @@ def checkInput(attempt, solution): # Check if the input is legal and correct and
         return [False, "Please enter valid characters.", False]
     elif len(attempt) != CHAIN_LENGTH:
         return [False, "Invalid string length.", False]
+    elif duplicates(attempt):
+        return [False, "Duplicates aren't allowed.", False]
     else:
         white_pegs = 0
         for peg in attempt:
             if peg in solution: # If a peg is present in the solution
-                white_pegs += 1 
+                white_pegs += 1
         
         black_pegs = 0
         for i, peg in enumerate(attempt):
