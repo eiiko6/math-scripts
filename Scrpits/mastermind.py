@@ -99,8 +99,6 @@ def game(): # Game here
 
 
 if __name__ == "__main__":
-    print("\n\n\n\n")
-
     print("Round: ", rounds)
     print("Total score: ", score)
 
