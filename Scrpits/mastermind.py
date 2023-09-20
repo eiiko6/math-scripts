@@ -2,7 +2,7 @@
 
 # There are still things to be done, like implementing support for duplicates
 
-import random, os
+import random
 
 TURNS = 5
 PEGS = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
@@ -80,13 +80,13 @@ def game(): # Game here
     print("You scored: ", round_score)
 
     again = True if input("Another round? (y/n) > ").lower() == 'y' else False
-    os.system('cls')
+    print("\n\n\n\n")
 
     return [round_score, again]
 
 
 if __name__ == "__main__":
-    os.system('cls')
+    print("\n\n\n\n")
 
     print("Round: ", rounds)
     print("Total score: ", score)
