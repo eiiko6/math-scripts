@@ -1,11 +1,13 @@
 # Mastermind
 
+# ToDo: difficulty levels
+
 # There are still things to be done, like implementing support for duplicates
 
 import random
 
-TURNS = 5
-PEGS = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
+TURNS = 8
+PEGS = ["A", "B", "C", "D", "E", "F"]
 CHAIN_LENGTH = 4
 
 rounds = 0
@@ -65,13 +67,13 @@ def game(): # Game here
     turns = TURNS
     solution = roll(False) # Kinda broken if True
 
-    print(f"Debug: {solution}") # Just for simplifying debug
+    #print(f"Debug: {solution}") # Just for simplifying debug
 
     print("Game ready, try guessing the code!")
     print("The valid pegs are", ", ".join(PEGS))
     
     while True: # Ask for the input until it's correct or the turns are used up
-        attempt = input("> ") # Broken if you input duplicates
+        attempt = input("> ").upper()
         print(checkInput(attempt, solution)[1])
 
         if checkInput(attempt, solution)[0] == False:
@@ -82,6 +84,7 @@ def game(): # Game here
 
             if turns == 0:
                 print("You used all of your turns!")
+                print("The solution was: ", solution)
                 round_score = 0
                 break
         
@@ -99,6 +102,8 @@ def game(): # Game here
 
 
 if __name__ == "__main__":
+    # askMode()
+
     print("Round: ", rounds)
     print("Total score: ", score)
 
