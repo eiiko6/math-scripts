@@ -6,10 +6,6 @@
 
 import random
 
-TURNS = 8
-PEGS = ["A", "B", "C", "D", "E", "F"]
-CHAIN_LENGTH = 4
-
 rounds = 0
 score = 0
 
@@ -25,7 +21,54 @@ def duplicates(s):
 
 
 # Game functions
-def roll(allowDupes): # Define a random solution
+def askMode():
+    TURNS = 0
+    PEGS = ["A", "B", "C", "D", "E", "F"]
+    CHAIN_LENGTH = 0
+
+    print("Choose the game mode: \n",
+          "- 1: Easy (4 characters code, 6 pegs, 10 turns) \n",
+          "- 2: Medium (4 characters code, 7 pegs, 8 turns) \n",
+          "- 3: Hard (4 characters code, 8 pegs, 7 turns) \n",
+          "- 4: Harder (4 characters code, 8 pegs, 5 turns)",
+          #"- 5: Custom (in development)"
+    )
+    mode = input("> ")
+
+    while 1:
+        if mode == "1":
+            TURNS = 10
+            CHAIN_LENGTH = 4
+            return [1, TURNS, PEGS, CHAIN_LENGTH]
+        
+        elif mode == "2":
+            TURNS = 8
+            CHAIN_LENGTH = 4
+            PEGS.append("G")
+            return [2, TURNS, PEGS, CHAIN_LENGTH]
+        
+        elif mode == "3":
+            TURNS = 7
+            CHAIN_LENGTH = 4
+            PEGS.append("G", "H")
+            return [3, TURNS, PEGS, CHAIN_LENGTH]
+        
+        elif mode == "4":
+            TURNS = 8
+            CHAIN_LENGTH = 4
+            PEGS.append("G", "H")
+            return [4, TURNS, PEGS, CHAIN_LENGTH]
+        
+        elif mode == "5":
+            TURNS = 5
+            CHAIN_LENGTH = 4
+            return [0, TURNS, PEGS, CHAIN_LENGTH]
+        
+        else:
+            print("Please enter a correct input.")
+            mode = input("> ")
+
+def roll(allowDupes, PEGS, CHAIN_LENGTH): # Define a random solution
     if allowDupes:
         output = random.choices(PEGS, k=CHAIN_LENGTH) # With duplicates
     else:
@@ -33,7 +76,7 @@ def roll(allowDupes): # Define a random solution
 
     return output
 
-def checkInput(attempt, solution): # Check if the input is legal and correct and return stuff
+def checkInput(attempt, solution, PEGS, CHAIN_LENGTH): # Check if the input is legal and correct and return stuff
     # The returned values here are kinda "codeGuessed", "message" and "countsAsTry"... I know it's messy
     if attempt == '':
         return [False, "Input was empty.", False]
@@ -62,25 +105,26 @@ def checkInput(attempt, solution): # Check if the input is legal and correct and
             return [False, f"Correct pegs in the right position: {black_pegs}, correct pegs in the wrong position: {white_pegs}", True]
 
 
-def game(): # Game here
+def game(TURNS, PEGS, CHAIN_LENGTH): # Game here
     round_score = 10
     turns = TURNS
-    solution = roll(False) # Kinda broken if True
+    solution = roll(False, PEGS, CHAIN_LENGTH) # Kinda broken if True
 
     #print(f"Debug: {solution}") # Just for simplifying debug
 
     print("Game ready, try guessing the code!")
-    print("The valid pegs are", ", ".join(PEGS))
+    print("The code is ", CHAIN_LENGTH, " characters long.")
+    print("The valid pegs are", ", ".join(PEGS), "\n")
     
-    while True: # Ask for the input until it's correct or the turns are used up
+    while 1: # Ask for the input until it's correct or the turns are used up
         attempt = input("> ").upper()
-        print(checkInput(attempt, solution)[1])
+        print(checkInput(attempt, solution, PEGS, CHAIN_LENGTH)[1])
 
-        if checkInput(attempt, solution)[0] == False:
-            if checkInput(attempt, solution)[2] == True:
+        if checkInput(attempt, solution, PEGS, CHAIN_LENGTH)[0] == False:
+            if checkInput(attempt, solution, PEGS, CHAIN_LENGTH)[2] == True:
                 round_score -= 1
                 turns -= 1
-                print("Turns remaining: ", turns)
+                print("Turns remaining: ", turns, "\n")
 
             if turns == 0:
                 print("You used all of your turns!")
@@ -88,7 +132,7 @@ def game(): # Game here
                 round_score = 0
                 break
         
-        if checkInput(attempt, solution)[0] == True:
+        if checkInput(attempt, solution, PEGS, CHAIN_LENGTH)[0] == True:
             break
 
     print("\n")
@@ -102,22 +146,26 @@ def game(): # Game here
 
 
 if __name__ == "__main__":
-    # askMode()
+    mode = askMode()
 
-    print("Round: ", rounds)
+    TURNS = mode[1]
+    PEGS = mode[2]
+    CHAIN_LENGTH = mode[3]
+
+    print("\n", "Round: ", rounds)
     print("Total score: ", score)
 
-    results = game() # Run the game for the first time
+    results = game(TURNS, PEGS, CHAIN_LENGTH) # Run the game for the first time
     rounds += 1
     score += results[0]
 
-    while True:
+    while 1:
         score += results[0]
         print("Round: ", rounds)
         print("Total score: ", score)
 
         if results[1] == True:
-            results = game() # Run the game
+            results = game(TURNS, PEGS, CHAIN_LENGTH) # Run the game
             rounds += 1
         else:
             break
