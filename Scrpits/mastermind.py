@@ -1,6 +1,6 @@
 # Mastermind
 
-# ToDo: difficulty levels
+# ToDo: add a custom difficulty, add a combo system
 
 # There are still things to be done, like implementing support for duplicates
 
@@ -60,8 +60,9 @@ def askMode():
             return [4, TURNS, PEGS, CHAIN_LENGTH]
         
         elif mode == "5":
-            TURNS = 5
-            CHAIN_LENGTH = 4
+            TURNS = 10 # int(input("Enter the amount of turns > "))
+            CHAIN_LENGTH = 4 # int(input("Enter the length of the code > "))
+            # PEGS, string to array
             return [0, TURNS, PEGS, CHAIN_LENGTH]
         
         else:
@@ -105,12 +106,12 @@ def checkInput(attempt, solution, PEGS, CHAIN_LENGTH): # Check if the input is l
             return [False, f"Correct pegs in the right position: {black_pegs}, correct pegs in the wrong position: {white_pegs}", True]
 
 
-def game(TURNS, PEGS, CHAIN_LENGTH): # Game here
+def game(TURNS, PEGS, CHAIN_LENGTH, mode): # Game here
     round_score = 10
     turns = TURNS
     solution = roll(False, PEGS, CHAIN_LENGTH) # Kinda broken if True
 
-    #print(f"Debug: {solution}") # Just for simplifying debug
+    print(f"Debug: {solution}") # Just for simplifying debug
 
     print("Game ready, try guessing the code!")
     print("The code is ", CHAIN_LENGTH, " characters long.")
@@ -134,6 +135,13 @@ def game(TURNS, PEGS, CHAIN_LENGTH): # Game here
         
         if checkInput(attempt, solution, PEGS, CHAIN_LENGTH)[0] == True:
             break
+    
+    if mode[0] == 2:
+        round_score += 2
+    elif mode[0] == 3:
+        round_score += 3
+    elif mode[0] == 4:
+        round_score += 4
 
     print("\n")
     print("Turns used: ", TURNS - turns + 1)
@@ -155,17 +163,18 @@ if __name__ == "__main__":
     print("\n", "Round: ", rounds)
     print("Total score: ", score)
 
-    results = game(TURNS, PEGS, CHAIN_LENGTH) # Run the game for the first time
+    results = game(TURNS, PEGS, CHAIN_LENGTH, mode) # Run the game for the first time
     rounds += 1
+
     score += results[0]
 
     while 1:
-        score += results[0]
         print("Round: ", rounds)
-        print("Total score: ", score)
+        print("Total score: ", score, "\n")
 
         if results[1] == True:
-            results = game(TURNS, PEGS, CHAIN_LENGTH) # Run the game
+            results = game(TURNS, PEGS, CHAIN_LENGTH, mode) # Run the game
             rounds += 1
+            score += results[0]
         else:
             break
