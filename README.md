@@ -23,4 +23,6 @@ So here are some small ones I made. They're usable, but sometimes really specifi
 
 - ### [mastermind.py](./Scrpits/mastermind.py)
     This is a simple mastermind game. Some parameters can be changed, like the amount of different pegs available, the sequence length or the amount of allowed tries. A score is added to a counter depending on the amount of turns used. Some common input errors like wrong characters or wrong length are handeled.
-    For now duplicates in input aren't handeled at all and result in incoherent results during checking.
+    For now duplicates in inputs aren't available and return an error.
+    The game also has a difficulty level choice that affects the score gained.
+    A custom difficulty should be added as well as a combo system.
