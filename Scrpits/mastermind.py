@@ -143,12 +143,11 @@ def game(TURNS, PEGS, CHAIN_LENGTH, mode): # Game here
     elif mode[0] == 4:
         round_score += 4
 
-    print("\n")
     print("Turns used: ", TURNS - turns + 1)
     print("You scored: ", round_score)
 
     again = True if input("Another round? (y/n) > ").lower() == 'y' else False
-    print("\n\n\n\n")
+    print("\n- - - - - - - - -\n")
 
     return [round_score, again]
 
