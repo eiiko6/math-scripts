@@ -5,9 +5,10 @@
 I like writing random scripts that do random things.
 So here are some small ones I made. They're usable, but sometimes really specific...
 
-## Scripts
-
-- ### [algebraicToTrigonometric.py](./Scrpits/math/algebraicToTrigonometric.py)   
+<details>
+  <summary>## Scripts ></summary>
+  
+  - ### [algebraicToTrigonometric.py](./Scrpits/math/algebraicToTrigonometric.py)   
     This script converts a complex number's algebraic expression to its trigonometric form.   
     The `convert` function takes 2 arguments that define the `reNumber` and `imNumber`.
 
@@ -26,3 +27,5 @@ So here are some small ones I made. They're usable, but sometimes really specifi
     For now duplicates in inputs aren't available and return an error.
     The game also has a difficulty level choice that affects the score gained.
     A custom difficulty should be added as well as a combo system.
+  
+</details>
