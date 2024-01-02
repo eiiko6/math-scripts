@@ -5,8 +5,10 @@
 I like writing random scripts that do random things.
 So here are some small ones I made. They're usable, but sometimes really specific...
 
+## Scripts
+
 <details>
-  <summary>## Scripts ></summary>
+  <summary>(read)</summary>
   
   - ### [algebraicToTrigonometric.py](./Scrpits/math/algebraicToTrigonometric.py)   
     This script converts a complex number's algebraic expression to its trigonometric form.   
