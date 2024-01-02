@@ -6,7 +6,7 @@ Here's a colletion of random Python scripts that I made. They're usable but some
 
 ## Scripts
 
-- Math-related scripts:
+### Math-related scripts:
 <details>
     <summary>(read)</summary>
 
@@ -20,7 +20,7 @@ Here's a colletion of random Python scripts that I made. They're usable but some
     The user is warned if the values provided aren't sorted correctly.
 </details>
 
-- Sorting algorithms:
+### Sorting algorithms:
 <details>
     <summary>(read)</summary>
 
@@ -34,7 +34,7 @@ Here's a colletion of random Python scripts that I made. They're usable but some
     This script implements the selection sort algorithm. It sorts the list by repeatedly finding the smallest element and putting it at the beginning.
 </details>
 
-- Games or other fun scripts:
+### Games or other fun scripts:
 <details>
     <summary>(read)</summary>
 
