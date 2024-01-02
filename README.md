@@ -24,13 +24,13 @@ Here's a colletion of random Python scripts that I made. They're usable but some
 <details>
     <summary>(read)</summary>
 
-- ### [bogo_sort.py](./Scripts/sorting-algorithms/bogo_sort.py)   
+- ### [bogo_sort.py](./Scrpits/sorting-algorithms/bogo.py)   
     This script implements the bogo sort algorithm. It shuffles the list randomly until it is sorted.
 
-- ### [insertion_sort.py](./Scripts/sorting-algorithms/insertion_sort.py)   
+- ### [insertion_sort.py](./Scrpits/sorting-algorithms/insertion.py)   
     This script implements the insertion sort algorithm. It sorts the list by gradually building a sorted part of the list.
 
-- ### [selection_sort.py](./Scripts/sorting-algorithms/selection_sort.py)
+- ### [selection_sort.py](./Scrpits/sorting-algorithms/selection.py)
     This script implements the selection sort algorithm. It sorts the list by repeatedly finding the smallest element and putting it at the beginning.
 </details>
 
