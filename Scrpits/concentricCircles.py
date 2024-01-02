@@ -39,4 +39,5 @@ def main():
         for i in range(nbcrcl):
             print(f"The area of disk {i + 1} is {areas[i]:.2f} cm²")
 
-main()
+if __name__ == "__main__":
+    main()

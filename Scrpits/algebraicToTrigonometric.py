@@ -1,3 +1,5 @@
+# Todo: use classes next time
+
 import math as m
 # import fractions as f
 
@@ -15,4 +17,5 @@ def convert(reNumber, imNumber):
 
     return(trForm) # There you go!
 
-print(convert(-8, 0)) # Print the function
+if __name__ == "__main__":
+    print(convert(-8, 0)) # Print the function
